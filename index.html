@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incredible Group | Email Signature Generator</title>
+  <style>
+    /* ===== Generator page chrome (tool only, NOT the email) ===== */
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f1f4f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color: #231F20; line-height: 1.5; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+
+    header.page-head { text-align: center; margin-bottom: 8px; }
+    header.page-head img { width: 220px; max-width: 70%; height: auto; }
+    header.page-head h1 { font-size: 22px; margin: 14px 0 4px; }
+    header.page-head p { margin: 0; color: #5b6166; font-size: 14px; }
+
+    .grid { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 28px; align-items: flex-start; }
+    .col { flex: 1 1 380px; min-width: 300px; }
+
+    .card { background: #fff; border: 1px solid #e1e6ea; border-radius: 10px; padding: 22px 22px 26px; }
+    .card h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: #27AAE1; margin: 0 0 18px; }
+
+    label { display: block; font-size: 13px; font-weight: 600; margin: 0 0 6px; }
+    .field { margin-bottom: 16px; }
+    .field:last-child { margin-bottom: 0; }
+    input[type="text"], input[type="email"], input[type="tel"] {
+      width: 100%; padding: 10px 12px; font-size: 14px; font-family: inherit;
+      border: 1px solid #cfd6db; border-radius: 6px; outline: none;
+    }
+    input:focus { border-color: #27AAE1; box-shadow: 0 0 0 3px rgba(39,170,225,.15); }
+    .hint { font-size: 12px; color: #8a9197; margin-top: 5px; }
+
+    /* Theme toggle */
+    .theme-toggle { display: flex; gap: 0; border: 1px solid #cfd6db; border-radius: 6px; overflow: hidden; max-width: 260px; }
+    .theme-toggle button {
+      flex: 1; padding: 10px 12px; font-size: 13px; font-weight: 600; font-family: inherit;
+      background: #fff; color: #5b6166; border: 0; cursor: pointer;
+    }
+    .theme-toggle button + button { border-left: 1px solid #cfd6db; }
+    .theme-toggle button.active { background: #27AAE1; color: #fff; }
+
+    .preview-shell { background: #fff; border: 1px solid #e1e6ea; border-radius: 10px; padding: 22px; }
+    .preview-shell h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: #27AAE1; margin: 0 0 14px; }
+    .preview-frame { border: 1px dashed #cfd6db; border-radius: 8px; padding: 16px; overflow-x: auto; background: #fff; }
+
+    .btn-row { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    button.copy { background: #27AAE1; color: #fff; border: 0; border-radius: 6px; padding: 12px 22px; font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer; }
+    button.copy:hover { background: #1f93c4; }
+    button.copy.secondary { background: #fff; color: #27AAE1; border: 1px solid #27AAE1; }
+    button.copy.secondary:hover { background: #f0f9fd; }
+    .copied-msg { font-size: 14px; font-weight: 600; color: #57B947; opacity: 0; transition: opacity .2s; }
+    .copied-msg.show { opacity: 1; }
+
+    .steps { background: #fff; border: 1px solid #e1e6ea; border-radius: 10px; padding: 22px; margin-top: 24px; }
+    .steps h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: #27AAE1; margin: 0 0 12px; }
+    .steps ol { margin: 0; padding-left: 20px; }
+    .steps li { margin-bottom: 8px; font-size: 14px; }
+    .steps code { background: #eef2f5; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+    footer.note { text-align: center; font-size: 12px; color: #9aa1a7; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="page-head">
+      <img src="https://raw.githubusercontent.com/CodyIncredibleGroup/emailsigassets/main/incredible-logo-horizontal.png" alt="Incredible Group">
+      <h1>Email Signature Generator</h1>
+      <p>Enter your details, choose a theme, then copy or download your signature.</p>
+    </header>
+
+    <div class="grid">
+
+      <!-- ============ LEFT: FORM ============ -->
+      <div class="col">
+        <div class="card">
+          <h2>Your details</h2>
+
+          <div class="field">
+            <label for="in-name">Full name</label>
+            <input type="text" id="in-name" placeholder="e.g. Cody Stevens" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="in-title">Job title</label>
+            <input type="text" id="in-title" placeholder="e.g. Enterprise Solutions Specialist" autocomplete="organization-title">
+          </div>
+
+          <div class="field">
+            <label for="in-email">Email address</label>
+            <input type="email" id="in-email" placeholder="e.g. you@incredible.co.nz" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="in-mobile">Mobile number</label>
+            <input type="tel" id="in-mobile" placeholder="e.g. (027) 688 5002" autocomplete="tel">
+            <div class="hint">Type it how you want it shown. The click-to-call link is built automatically.</div>
+          </div>
+
+          <div class="field">
+            <label>Theme</label>
+            <div class="theme-toggle">
+              <button type="button" id="theme-light" class="active">Light</button>
+              <button type="button" id="theme-dark">Dark</button>
+            </div>
+            <div class="hint">The theme is baked in, so it looks the same in every email client. Light suits most inboxes; Dark suits teams that standardise on a dark look.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ RIGHT: PREVIEW + ACTIONS ============ -->
+      <div class="col">
+        <div class="preview-shell">
+          <h2>Live preview</h2>
+          <div class="preview-frame">
+            <!-- Signature is rendered here by JavaScript -->
+            <div id="signature-output"></div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="copy" id="downloadBtn">Download HTML file</button>
+            <button type="button" class="copy secondary" id="copyBtn">Copy signature</button>
+            <span class="copied-msg" id="copiedMsg"></span>
+          </div>
+          <p class="hint" style="margin-top:10px;">
+            <strong>Apple Mail / Outlook desktop:</strong> use <strong>Download HTML file</strong> and follow the install steps (this keeps the image sizes correct).<br>
+            <strong>Gmail:</strong> use <strong>Copy signature</strong> and paste it into your Gmail signature box.
+          </p>
+        </div>
+
+        <div class="steps">
+          <h2>Gmail (web)</h2>
+          <ol>
+            <li>Fill in your details and pick a theme, then click <strong>Copy signature</strong>.</li>
+            <li>In Gmail: gear icon, <strong>See all settings</strong>, <strong>General</strong>, scroll to <strong>Signature</strong>, <strong>Create new</strong>, then paste (Ctrl+V).</li>
+            <li>Set it for new emails and replies, then <strong>Save changes</strong> at the bottom.</li>
+          </ol>
+
+          <h2 style="margin-top:18px;">Apple Mail</h2>
+          <ol>
+            <li>Click <strong>Download HTML file</strong>.</li>
+            <li>Open <strong>Mail &gt; Settings &gt; Signatures</strong>, create a new signature, type any placeholder, then <strong>quit Mail</strong>.</li>
+            <li>In Finder press <strong>Cmd+Shift+G</strong>, go to <code>~/Library/Mail/</code>, open the <code>V*</code> folder, then <code>MailData/Signatures/</code>. Find the newest <code>.mailsignature</code> file.</li>
+            <li>Open it in TextEdit. Keep the header lines at the top (down to the first blank line) and replace everything below with the contents of your downloaded file.</li>
+            <li>Save, then Get Info on the file and tick <strong>Locked</strong>. Reopen Mail.</li>
+          </ol>
+
+          <h2 style="margin-top:18px;">Outlook (Windows desktop)</h2>
+          <ol>
+            <li>Click <strong>Download HTML file</strong>.</li>
+            <li>Open <strong>File &gt; Options &gt; Mail &gt; Signatures</strong>, click <strong>New</strong>, name it, assign your account, then <strong>OK</strong> and close Outlook.</li>
+            <li>In File Explorer paste <code>%APPDATA%\Microsoft\Signatures</code> into the address bar and press Enter. Find the <code>.htm</code> file named after your signature.</li>
+            <li>Open it in Notepad, select all, delete, paste in the contents of your downloaded file, and save (keep the filename).</li>
+            <li>Reopen Outlook.</li>
+          </ol>
+
+          <p style="margin-top:14px; font-size:14px;">Always send yourself a test email and check it on your phone and computer.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="note">Incredible Group internal tool. Images are hosted on GitHub, so recipients need an internet connection to see them (normal for email signatures).</footer>
+  </div>
+
+  <script>
+    var BASE = 'https://raw.githubusercontent.com/CodyIncredibleGroup/emailsigassets/main/';
+    var FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif";
+
+    var DEFAULTS = { name: 'Your Name', title: 'Your Job Title', email: 'you@incredible.co.nz', mobile: '(your mobile)' };
+
+    // Theme palettes (baked into the output)
+    var THEMES = {
+      light: { cardBg: '#ffffff', name: '#231F20', text: '#231F20', label: '#9aa0a6', sep: '#c4c8cc', icon: 'black', badge: 'incredible-25y-badge.png' },
+      dark:  { cardBg: '#111315', name: '#ffffff', text: '#ffffff', label: '#b8babd', sep: '#5a6066', icon: 'white', badge: 'incredible-25y-badge-dark.png' }
+    };
+    var currentTheme = 'light';
+
+    var inName   = document.getElementById('in-name');
+    var inTitle  = document.getElementById('in-title');
+    var inEmail  = document.getElementById('in-email');
+    var inMobile = document.getElementById('in-mobile');
+    var out      = document.getElementById('signature-output');
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function toTel(num) {
+      var n = (num || '').replace(/[^0-9+]/g, '');
+      if (n.charAt(0) === '0') { n = '+64' + n.slice(1); }
+      return 'tel:' + n;
+    }
+
+    // Build the full signature table for a given theme + values
+    function buildSignature(theme) {
+      var t = THEMES[theme];
+      var name   = esc(inName.value.trim()   || DEFAULTS.name);
+      var title  = esc(inTitle.value.trim()  || DEFAULTS.title);
+      var emailV = inEmail.value.trim()  || DEFAULTS.email;
+      var mobV   = inMobile.value.trim() || DEFAULTS.mobile;
+      var emailE = esc(emailV), mobE = esc(mobV);
+      var telHref = inMobile.value.trim() ? toTel(inMobile.value.trim()) : 'tel:';
+      var mailHref = 'mailto:' + emailV;
+
+      function icon(file, w, alt, href) {
+        return '<td style="padding:0 13px 0 0;" valign="middle">' +
+          '<a href="' + href + '" target="_blank" style="text-decoration:none;">' +
+          '<img src="' + BASE + 'incredible-' + file + '-' + t.icon + '.png" alt="' + alt + '" width="' + w + '" height="28" style="display:block; width:' + w + 'px; height:28px; border:0; outline:none;">' +
+          '</a></td>';
+      }
+      function iconLast(file, w, alt, href) {
+        return '<td style="padding:0;" valign="middle">' +
+          '<a href="' + href + '" target="_blank" style="text-decoration:none;">' +
+          '<img src="' + BASE + 'incredible-' + file + '-' + t.icon + '.png" alt="' + alt + '" width="' + w + '" height="28" style="display:block; width:' + w + 'px; height:28px; border:0; outline:none;">' +
+          '</a></td>';
+      }
+
+      return '' +
+      '<table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="' + t.cardBg + '" style="background-color:' + t.cardBg + '; border-collapse:collapse;">' +
+        '<tr><td style="padding:14px 18px; font-family:' + FONT + ';">' +
+          '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">' +
+
+            // Row 1: name/contact + badge
+            '<tr><td style="padding:0;">' +
+              '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;"><tr>' +
+                '<td valign="middle" style="font-family:' + FONT + ';">' +
+                  '<div style="font-size:18px; line-height:21px; font-weight:bold; color:' + t.name + '; letter-spacing:0.2px;">' + name + '</div>' +
+                  '<div style="font-size:11px; line-height:14px; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase; color:#27AAE1; padding-top:3px; padding-bottom:8px;">' + title + '</div>' +
+                  '<table role="presentation" cellpadding="0" cellspacing="0" border="0">' +
+                    '<tr><td style="font-size:12px; line-height:17px; font-family:' + FONT + ';"><span style="color:' + t.label + ';">E&nbsp;&nbsp;</span><a href="' + mailHref + '" style="color:' + t.text + '; text-decoration:none;">' + emailE + '</a></td></tr>' +
+                    '<tr><td style="font-size:12px; line-height:17px; font-family:' + FONT + ';"><span style="color:' + t.label + ';">M&nbsp;&nbsp;</span><a href="' + telHref + '" style="color:' + t.text + '; text-decoration:none;">' + mobE + '</a></td></tr>' +
+                    '<tr><td style="font-size:12px; line-height:17px; font-family:' + FONT + ';"><span style="color:' + t.label + ';">A&nbsp;&nbsp;</span><a href="https://maps.app.goo.gl/BV9q7V3MP8cR5yUJ8" target="_blank" style="color:' + t.text + '; text-decoration:none;">38F Highbrook Drive, Auckland</a></td></tr>' +
+                  '</table>' +
+                '</td>' +
+                '<td align="right" valign="middle" style="padding-left:12px; font-family:' + FONT + ';">' +
+                  '<a href="' + BASE + t.badge + '" target="_blank" style="text-decoration:none;">' +
+                    '<img src="' + BASE + t.badge + '" alt="Incredible Group - 25 Years" width="88" height="86" style="display:block; width:88px; height:86px; border:0; outline:none;">' +
+                  '</a>' +
+                '</td>' +
+              '</tr></table>' +
+            '</td></tr>' +
+
+            // Row 2: equipment icons
+            '<tr><td style="padding-top:12px;">' +
+              '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>' +
+                icon('camera', 37, 'Creative Imaging', 'https://incredible.co.nz/creative/photography/') +
+                icon('helicopter', 100, 'Industrial Operations', 'https://incredible.co.nz/creative/helicopter/') +
+                icon('drone', 51, 'Drones', 'https://incredible.co.nz/industrial/') +
+                iconLast('dock', 43, 'Sales &amp; Solutions', 'https://incredible.co.nz/incredible_products/percepta-product/') +
+              '</tr></table>' +
+            '</td></tr>' +
+
+            // Row 3: service categories (nowrap = width anchor)
+            '<tr><td style="padding-top:9px; font-size:11px; line-height:14px; font-weight:bold; white-space:nowrap; font-family:' + FONT + ';">' +
+              '<a href="https://incredible.co.nz/creative/" style="color:#27AAE1; text-decoration:none;">Creative&nbsp;Imaging</a>' +
+              '<span style="color:' + t.sep + '; font-weight:normal;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +
+              '<a href="https://incredible.co.nz/industrial/" style="color:#F15A22; text-decoration:none;">Industrial&nbsp;Operations</a>' +
+              '<span style="color:' + t.sep + '; font-weight:normal;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +
+              '<a href="https://incredible.co.nz/product-solutions/" style="color:#57B947; text-decoration:none;">Sales&nbsp;&amp;&nbsp;Solutions</a>' +
+            '</td></tr>' +
+
+            // Row 4: social icons + website
+            '<tr><td style="padding-top:11px;">' +
+              '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;"><tr>' +
+                '<td valign="middle" style="font-family:' + FONT + ';">' +
+                  '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>' +
+                    '<td style="padding:0 8px 0 0;"><a href="https://www.linkedin.com/company/4536837/"><img src="' + BASE + 'incredible-linkedin.png" alt="LinkedIn" width="19" height="19" style="display:block; width:19px; height:19px; border:0; outline:none;"></a></td>' +
+                    '<td style="padding:0 8px 0 0;"><a href="https://www.facebook.com/IncredibleImages"><img src="' + BASE + 'incredible-facebook.png" alt="Facebook" width="19" height="19" style="display:block; width:19px; height:19px; border:0; outline:none;"></a></td>' +
+                    '<td style="padding:0;"><a href="https://www.instagram.com/incredibleimagesnz/"><img src="' + BASE + 'incredible-instagram.png" alt="Instagram" width="19" height="19" style="display:block; width:19px; height:19px; border:0; outline:none;"></a></td>' +
+                  '</tr></table>' +
+                '</td>' +
+                '<td align="right" valign="middle" style="font-size:11px; line-height:19px; font-family:' + FONT + ';">' +
+                  '<a href="https://incredible.co.nz" style="color:#27AAE1; text-decoration:none; font-weight:normal; font-size:11px;">www.incredible.co.nz</a>' +
+                '</td>' +
+              '</tr></table>' +
+            '</td></tr>' +
+
+          '</table>' +
+        '</td></tr>' +
+      '</table>';
+    }
+
+    function render() {
+      out.innerHTML = buildSignature(currentTheme);
+    }
+
+    [inName, inTitle, inEmail, inMobile].forEach(function (el) { el.addEventListener('input', render); });
+
+    // Theme toggle
+    var btnLight = document.getElementById('theme-light');
+    var btnDark  = document.getElementById('theme-dark');
+    btnLight.addEventListener('click', function () { currentTheme = 'light'; btnLight.classList.add('active'); btnDark.classList.remove('active'); render(); });
+    btnDark.addEventListener('click',  function () { currentTheme = 'dark';  btnDark.classList.add('active');  btnLight.classList.remove('active'); render(); });
+
+    render();
+
+    // ---- Copy the rendered signature (rich HTML) ----
+    var copyBtn = document.getElementById('copyBtn');
+    var copiedMsg = document.getElementById('copiedMsg');
+    copyBtn.addEventListener('click', function () {
+      var ok = false;
+      try {
+        var range = document.createRange();
+        range.selectNode(out);
+        var sel = window.getSelection();
+        sel.removeAllRanges(); sel.addRange(range);
+        ok = document.execCommand('copy');
+        sel.removeAllRanges();
+      } catch (e) { ok = false; }
+      if (!ok && navigator.clipboard && window.ClipboardItem) {
+        try {
+          var item = new ClipboardItem({ 'text/html': new Blob([out.innerHTML], { type: 'text/html' }) });
+          navigator.clipboard.write([item]); ok = true;
+        } catch (e2) { ok = false; }
+      }
+      if (ok) {
+        copiedMsg.textContent = 'Copied! Now paste it into Gmail.';
+        copiedMsg.classList.add('show');
+        setTimeout(function () { copiedMsg.classList.remove('show'); }, 4000);
+      } else {
+        alert('Copy did not work automatically. Select the signature in the preview, press Ctrl+C, then paste it.');
+      }
+    });
+
+    // ---- Download a complete standalone HTML file (baked theme) ----
+    var downloadBtn = document.getElementById('downloadBtn');
+    function buildFullHtml() {
+      var t = THEMES[currentTheme];
+      return [
+        '<!DOCTYPE html>',
+        '<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">',
+        '<head>',
+        '  <meta charset="utf-8">',
+        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        '  <title>Incredible Group Email Signature</title>',
+        '</head>',
+        '<body style="margin:0; padding:0; background-color:' + t.cardBg + ';">',
+        buildSignature(currentTheme),
+        '</body>',
+        '</html>'
+      ].join('\n');
+    }
+    downloadBtn.addEventListener('click', function () {
+      var blob = new Blob([buildFullHtml()], { type: 'text/html' });
+      var url = URL.createObjectURL(blob);
+      var slug = (inName.value.trim() || 'signature').replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase();
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'incredible-signature-' + (slug || 'signature') + '-' + currentTheme + '.html';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  </script>
+</body>
+</html>
