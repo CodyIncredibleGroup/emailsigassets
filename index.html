@@ -42,7 +42,7 @@
 
     .preview-shell { background: #fff; border: 1px solid #e1e6ea; border-radius: 10px; padding: 22px; }
     .preview-shell h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: #27AAE1; margin: 0 0 14px; }
-    .preview-frame { border: 1px dashed #cfd6db; border-radius: 8px; padding: 16px; overflow-x: auto; background: #fff; }
+    .preview-frame { border: 1px dashed #cfd6db; border-radius: 8px; padding: 16px 16px 16px 0; overflow-x: auto; background: #fff; }
 
     .btn-row { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     button.copy { background: #27AAE1; color: #fff; border: 0; border-radius: 6px; padding: 12px 22px; font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer; }
@@ -217,7 +217,7 @@
 
       return '' +
       '<table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="' + t.cardBg + '" style="background-color:' + t.cardBg + '; border-collapse:collapse;">' +
-        '<tr><td style="padding:14px 18px; font-family:' + FONT + ';">' +
+        '<tr><td style="padding:14px 18px 14px 0; font-family:' + FONT + ';">' +
           '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">' +
 
             // Row 1: name/contact + badge
